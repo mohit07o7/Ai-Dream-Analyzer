@@ -110,7 +110,7 @@ st.markdown(
 )
 
 # Streamlit UI
-st.title("🌙 Dream Analyzer")
+st.title("AI Dream Analyzer")
 
 # User input area
 user_input = st.text_area(
@@ -132,10 +132,10 @@ if st.button("Chat here", key="chat_button") or user_input:
         with st.spinner("🤖 Analyzing your dream... Please wait."):
             response = chat_with_gemini(user_input)
 
-        if response.startswith("🚨 Error"):
+        if response.startswith(" Error"):
             st.error(response)  # Show error message
         else:
-            st.success("🌟 Therapist's Response:")
+            st.success("Therapist's Response:")
             st.write(response)
 
             # 🔊 Convert response to speech
@@ -147,10 +147,10 @@ if st.button("Chat here", key="chat_button") or user_input:
             st.session_state.chat_history.append(("Therapist", response))
 
     else:
-        st.warning("⚠️ Please enter a message or try speaking again.")
+        st.warning(" Please enter a message or try speaking again.")
 
 # Display chat history
-st.write("### 💬 Chat History")
+st.write("###  Chat History")
 chat_history_container = st.container()
 with chat_history_container:
     for role, text in st.session_state.chat_history:
