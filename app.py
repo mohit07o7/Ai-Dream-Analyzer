@@ -13,7 +13,7 @@ chat_session = model.start_chat()
 def record_and_recognize():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        st.info("🎤 Speak now...")
+        st.info(" Speak now...")
         audio = recognizer.listen(source)
     
     try:
