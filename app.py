@@ -35,9 +35,9 @@ def text_to_speech(text):
 def chat_with_gemini(user_input):
     try:
         response = chat_session.send_message(user_input)
-        return response.text if response and response.text else "⚠️ No response received from Gemini."
+        return response.text if response and response.text else "No response received from Gemini."
     except Exception as e:
-        return f"🚨 Error: {str(e)}"
+        return f" Error: {str(e)}"
 
 # Initialize chat history in session state
 if "chat_history" not in st.session_state:
@@ -120,16 +120,16 @@ user_input = st.text_area(
 )
 
 # 🎙️ Voice input button
-if st.button("🎙️ Speak Your Dream"):
+if st.button(" Speak Your Dream"):
     user_input = record_and_recognize()
-    st.write("📝 You said:", user_input)
+    st.write(" You said:", user_input)
 
 # Chat Button
 if st.button("Chat here", key="chat_button") or user_input:
     user_input = user_input.strip()  # Remove extra spaces
 
     if user_input:  # Ensure input is not empty
-        with st.spinner("🤖 Analyzing your dream... Please wait."):
+        with st.spinner(" Analyzing your dream... Please wait."):
             response = chat_with_gemini(user_input)
 
         if response.startswith(" Error"):
